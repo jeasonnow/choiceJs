@@ -12,16 +12,16 @@ export function compose(...funcs: any): Function {
     return funcs[0];
   }
 
-  if (funcs.length ===1 && Array.isArray(funcs)) {
+  if (funcs.length === 1 && Array.isArray(funcs)) {
     funcs.push(() => {});
   }
-  
+
   return funcs.reduce((a, b) => (...args) => {
     a = Array.isArray(a) ? compose(...a) : a;
     b = Array.isArray(b) ? compose(...b) : b;
 
     return a(b(...args));
-  })
+  });
 }
 
 export function error(err: string): void {

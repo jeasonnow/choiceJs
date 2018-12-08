@@ -1,23 +1,38 @@
 import * as utils from './utils';
-import { choiceItem } from './types';
+
+interface choiceItem {
+  condition: boolean;
+  callback: any;
+  childrenCondition?: Array<choiceItem>;
+  extends?: string;
+  description: string;
+}
 
 class Choice {
-  choices: Array<choiceItem>
-  processCallback: Array<any>
+  choices: Array<choiceItem>;
+  processCallback: Array<any>;
   constructor() {
     this.choices = [];
     this.processCallback = [];
   }
-  add(description: string, condition: boolean, callback: any, extend?: string): any {
+  add(
+    description: string,
+    condition: boolean,
+    callback: any,
+    extend?: string
+  ): any {
     let newChoice: choiceItem = {
       callback,
       condition,
       description
     };
-    if (extend && this.choices.length > 0) {ß
+    if (extend && this.choices.length > 0) {
       newChoice.extends = extend;
       for (let index in this.choices) {
-        this.choices[index] = Choice.traversalChoiceTree(this.choices[index], newChoice);
+        this.choices[index] = Choice.traversalChoiceTree(
+          this.choices[index],
+          newChoice
+        );
       }
     } else {
       this.choices.push(newChoice);
@@ -27,13 +42,13 @@ class Choice {
   }
   use(): any {
     const choices: Array<choiceItem> = this.choices.slice(0);
-    const processArray = choices.map((choice: choiceItem): Array<any> => {
-      return Choice.getRunProcess(choice);
-    })
+    const processArray = choices.map(
+      (choice: choiceItem): Array<any> => {
+        return Choice.getRunProcess(choice);
+      }
+    );
 
     const useFunc = utils.compose(processArray);
-
-    console.log(useFunc);
 
     useFunc();
 
@@ -48,7 +63,10 @@ class Choice {
         finalTree.childrenCondition.push(choice);
       } else {
         for (let index in finalTree.childrenCondition) {
-          finalTree.childrenCondition[index] = Choice.traversalChoiceTree(finalTree.childrenCondition[index], choice);
+          finalTree.childrenCondition[index] = Choice.traversalChoiceTree(
+            finalTree.childrenCondition[index],
+            choice
+          );
         }
       }
     } else {
@@ -59,20 +77,25 @@ class Choice {
 
     return finalTree;
   }
-  static getRunProcess(choice: choiceItem, processArray?: Array<any>): Array<any> {
+  static getRunProcess(
+    choice: choiceItem,
+    processArray?: Array<any>
+  ): Array<any> {
     processArray = processArray || [];
     const choicesClone: choiceItem = { ...choice };
 
     if (!choicesClone.childrenCondition) {
       if (choicesClone.condition) {
         processArray.unshift(choicesClone.callback);
-      } 
+      }
     } else {
       if (choicesClone.condition) {
         processArray.unshift(choicesClone.callback);
         for (let index in choicesClone.childrenCondition) {
-          const childrenProcess = Choice.getRunProcess(choicesClone.childrenCondition[index]);
-          processArray.unshift(childrenProcess)
+          const childrenProcess = Choice.getRunProcess(
+            choicesClone.childrenCondition[index]
+          );
+          processArray.unshift(childrenProcess);
         }
       }
     }
