@@ -1,0 +1,47 @@
+{
+  "name": "choicejs",
+  "version": "0.0.1",
+  "description": "use choice mk your js simple.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "js",
+    "if",
+    "else",
+    "choice"
+  ],
+  "author": "santree",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "install": "^0.12.2",
+    "npm": "^6.4.1",
+    "prettier": "^1.15.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2"
+  }
+}

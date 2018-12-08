@@ -1,0 +1,24 @@
+{
+  "presets": [
+    ["env",
+      {
+        "modules": false
+      }],
+    "stage-0",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+      }
+    ],
+    "external-helpers",
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread"
+  ]
+}
