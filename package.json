@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "build": "rollup -c",
+    "build": "cross-env env=production deploy=false rollup -c",
     "lint": "eslint src/* && eclint check",
-    "fix": "eslint src/* --fix && eclint fix"
+    "fix": "eslint src/* --fix && eclint fix",
+    "build:deploy": "cross-env env=production deploy=true rollup -c",
+    "deploy": "cd deploy/ && "
   },
   "husky": {
     "hooks": {
@@ -29,6 +31,7 @@
   "author": "santree",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eclint": "^2.8.1",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
@@ -44,6 +47,7 @@
     "prettier": "^1.15.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
     "tslib": "^1.9.3",
     "typescript": "^3.2.2",
     "typescript-eslint-parser": "^21.0.2"
