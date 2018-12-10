@@ -7,7 +7,7 @@ install:
 - npm install
 
 stages:
-- lint
+# - lint
 - build
 
 lint:
