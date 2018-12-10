@@ -4,7 +4,6 @@
   "description": "use choice mk your js simple.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
     "build": "rollup -c",
     "lint": "eslint src/* && eclint check",
     "fix": "eslint src/* --fix && eclint fix"
