@@ -28,6 +28,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-typescript": "^7.0.0-alpha.19",
+    "eclint": "^2.8.1",
     "eslint": "^5.9.0",
     "eslint-config-alloy": "^1.4.2",
     "eslint-config-prettier": "^3.3.0",

@@ -1,34 +1,21 @@
 language: node_js
 
 node_js: 
- - '8'
-
-install:
-- npm install
 
 stages:
-# - lint
-- build
+- lint
+- name: build
+  if: branch = /^release[\/_]\d+\.\d+$/
 
 lint:
   stage: lint
-  except:
-    - master
-    - /^v\d+\.\d+$/
-    - /^release[\/_]\d+\.\d+$/
   script:
     - npm run lint
 
 build:
   stage: build
-  only:
-    - master
-    - /^release[\/_]\d+\.\d+$/
-    - /^v\d+\.\d+$/
   script:
     - npm run lint
     - npm run build
-  artifacts:
-    expire_in: 5d
-    paths:
-      - dist/
+
+cache: npm
