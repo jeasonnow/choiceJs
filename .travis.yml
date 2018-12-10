@@ -2,20 +2,14 @@ language: node_js
 
 node_js: '8'
 
-stages:
-- lint
-- name: build
-  if: branch = /^release[\/_]\d+\.\d+$/
-
-lint:
-  stage: lint
-  script:
-    - npm run lint
-
-build:
-  stage: build
-  script:
-    - npm run lint
-    - npm run build
+jobs: 
+  inclde:
+    - stage: 'Tests'
+      name: 'lint test'
+      script: 'npm run lint'
+    - stage: 'Build'
+      name: 'build choiceJs'
+      script: 'npm run build'
+      if: brach = /^release[\/_]\d+\.\d+$/
 
 cache: npm
