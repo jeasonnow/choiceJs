@@ -10,10 +10,8 @@ interface choiceItem {
 
 class Choice {
   choices: Array<choiceItem>;
-  processCallback: Array<any>;
   constructor() {
     this.choices = [];
-    this.processCallback = [];
   }
   add(
     description: string,
