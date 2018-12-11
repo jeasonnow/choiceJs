@@ -1,0 +1,8 @@
+node_modules/*
+.build/*
+dist/*
+src/utils/lib
+coordtransform.js
+dist
+test/*
+deploy/*

@@ -1,0 +1,37 @@
+language: node_js
+
+node_js: '8'
+
+install:
+  - npm install
+
+stages:
+ - test
+ - name: deploy
+
+jobs:
+ include:
+   - stage: test
+     script:
+       - echo "Testing Started ..."
+       - npm run build
+       - npm run test
+       - echo "Testing Finished."
+
+   - stage: deploy
+     script:
+       - echo "NPM Deploying Started ..."
+       - npm version
+       - npm run build
+       - cd deploy
+       - echo "NPM Building Finished."
+
+     deploy:
+       provider: npm
+       email: gosick.but@qq.com
+       api_key: "$NPM_TOKEN"
+       skip_cleanup: true
+       on:
+          tags: true
+
+cache: npm

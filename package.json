@@ -1,0 +1,69 @@
+{
+  "name": "choicejs",
+  "version": "1.0.0",
+  "description": "use choice mk your if...else simple.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint src/* && eclint check",
+    "fix": "eslint src/* --fix && eclint fix",
+    "test": "npm run lint &&  mocha test/index.js",
+    "test:build": "cross-env deploy=false mocha test/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "js",
+    "if",
+    "else",
+    "choice"
+  ],
+  "author": "santree",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eclint": "^2.8.1",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.15.3",
+    "rollup": "^0.67.4",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeasonnow/choiceJs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeasonnow/choiceJs/issues"
+  },
+  "homepage": "https://github.com/jeasonnow/choiceJs#readme"
+}
