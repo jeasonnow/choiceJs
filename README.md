@@ -1,5 +1,6 @@
 # choiceJs
-
+[![Build Status](https://travis-ci.org/jeasonnow/choiceJs.svg?branch=master)](https://travis-ci.org/jeasonnow/choiceJs)
+[![Build version](https://img.shields.io/badge/npm-v6.4.1-green.svg)](https://github.com/jeasonnow/choiceJs)
 ## 为何选择choiceJs
 
 ### 一切都怪if...else
@@ -32,18 +33,18 @@ if (...) {
 
 ### install
 ```
-$ npm install choice
+$ npm install choicejs
 ```
 
 ### import or require
 ```
 // es module
-import { Choice } from 'choice'
+import { Choice } from 'choicejs'
 ```
 
 ```
 // commonJs
-const Choice = require('choice').Choice;
+const Choice = require('choicejs').Choice;
 ```
 
 ### add(description: string, condition: boolean, callback: any, extend?: string)

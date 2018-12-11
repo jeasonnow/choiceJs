@@ -1,6 +1,6 @@
 {
   "name": "choicejs",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "use choice make your if...else... beauty",
   "main": "index.js",
   "scripts": {
