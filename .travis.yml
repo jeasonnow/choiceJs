@@ -13,6 +13,7 @@ jobs:
     - name: 'unit test build'
       script: 'npm run test:build'
       if: branch = master
+
     - stage: 'Build'
       name: 'build deploy choiceJs'
       script: 'npm run build:deploy'
@@ -20,5 +21,16 @@ jobs:
     - name: 'build choiceJs'
       script: 'npm run build'
       if: branch = master
+
+    - stage: deploy
+      if: branch = /^release[\/_]\d+\.\d+$/
+
+      deploy:
+        provider: npm
+        email: gosick.but@qq.com
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true
+        on:
+          branch: /^release[\/_]\d+\.\d+$/
 
 cache: npm
