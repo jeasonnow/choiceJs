@@ -32,6 +32,6 @@ jobs:
        api_key: "$NPM_TOKEN"
        skip_cleanup: true
        on:
-          branch: /^release[\/_]\d+\.\d+\.\d+$/
+          tag: true
 
 cache: npm
