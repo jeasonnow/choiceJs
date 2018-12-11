@@ -32,6 +32,6 @@ jobs:
        api_key: "$NPM_TOKEN"
        skip_cleanup: true
        on:
-          tag: true
+          tags: true
 
 cache: npm
