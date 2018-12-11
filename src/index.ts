@@ -16,11 +16,11 @@ class Choice {
   add(
     description: string,
     condition: boolean,
-    callback: any,
+    callback?: any,
     extend?: string
   ): any {
     let newChoice: choiceItem = {
-      callback,
+      callback: callback || function() {},
       condition,
       description
     };
@@ -105,4 +105,7 @@ class Choice {
   }
 }
 
-export default Choice;
+export default {
+  Choice,
+  utils
+};

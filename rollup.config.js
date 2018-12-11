@@ -1,9 +1,11 @@
 const commonjs = require('rollup-plugin-commonjs');
 const typescript = require('rollup-plugin-typescript');
-const uglify = require('rollup-plugin-uglify');
+const { uglify } = require('rollup-plugin-uglify');
 
 const env = process.env.env || 'production';
 const deploy = process.env.deploy || 'false';
+
+let outputPath = 'dist/index.js';
 
 let defaultPlugins = [
   typescript({ target: 'es5', module: 'CommonJS' }),
@@ -12,12 +14,13 @@ let defaultPlugins = [
 
 if (deploy === 'true' && env === 'production') {
   defaultPlugins.push(uglify());
+  outputPath = 'deploy/index.js';
 }
 
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/index.js',
+    file: outputPath,
     format: 'cjs'
   },
   plugins: defaultPlugins

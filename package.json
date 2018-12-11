@@ -4,10 +4,12 @@
   "description": "use choice mk your if...else simple.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint",
-    "build": "cross-env env=production deploy=false rollup -c",
+    "test:deploy": "cross-env deploy=true mocha test/index.js",
+    "build": "cross-env env=development deploy=false rollup -c",
     "lint": "eslint src/* && eclint check",
     "fix": "eslint src/* --fix && eclint fix",
+    "test": "npm run lint",
+    "test:build": "cross-env deploy=false mocha test/index.js",
     "build:deploy": "cross-env env=production deploy=true rollup -c",
     "deploy": "cd deploy/ && "
   },
@@ -31,6 +33,7 @@
   "author": "santree",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
     "cross-env": "^5.2.0",
     "eclint": "^2.8.1",
     "eslint": "^5.9.0",
@@ -44,6 +47,7 @@
     "eslint-plugin-typescript": "^0.14.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
+    "mocha": "^5.2.0",
     "prettier": "^1.15.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-typescript": "^1.0.0",
@@ -51,5 +55,17 @@
     "tslib": "^1.9.3",
     "typescript": "^3.2.2",
     "typescript-eslint-parser": "^21.0.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeasonnow/choiceJs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeasonnow/choiceJs/issues"
+  },
+  "homepage": "https://github.com/jeasonnow/choiceJs#readme"
 }

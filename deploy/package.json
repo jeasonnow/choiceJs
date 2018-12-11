@@ -1,0 +1,24 @@
+{
+  "name": "choice",
+  "version": "0.1.0",
+  "description": "use choice make your if...else... beauty",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeasonnow/choiceJs.git"
+  },
+  "keywords": [
+    "if",
+    "else",
+    "choice"
+  ],
+  "author": "santree",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeasonnow/choiceJs/issues"
+  },
+  "homepage": "https://github.com/jeasonnow/choiceJs#readme"
+}

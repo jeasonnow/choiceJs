@@ -7,9 +7,18 @@ jobs:
     - stage: 'Tests'
       name: 'lint test'
       script: 'npm run lint'
+    - name: 'unit test'
+      script: 'npm run test:deploy'
+      if: branch = /^release[\/_]\d+\.\d+$/
+    - name: 'unit test build'
+      script: 'npm run test:build'
+      if: branch = master
     - stage: 'Build'
-      name: 'build choiceJs'
+      name: 'build deploy choiceJs'
+      script: 'npm run build:deploy'
+      if: branch = /^release[\/_]\d+\.\d+$/
+    - name: 'build choiceJs'
       script: 'npm run build'
-      if: brach = /^release[\/_]\d+\.\d+$/
+      if: branch = master
 
 cache: npm

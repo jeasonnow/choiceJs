@@ -8,11 +8,11 @@ export function compose(...funcs: any): Function {
     return arg => arg;
   }
 
-  if (funcs.length === 1 && !Array.isArray(funcs)) {
+  if (funcs.length === 1 && !Array.isArray(funcs[0])) {
     return funcs[0];
   }
 
-  if (funcs.length === 1 && Array.isArray(funcs)) {
+  if (funcs.length === 1 && Array.isArray(funcs[0])) {
     funcs.push(() => {});
   }
 

@@ -80,12 +80,3 @@ judgeTree
 ```
 judgeTree.use();
 ```
-
-### destroy()
-销毁决策树
-
-在你不需要使用决策树之后，推荐使用该方法销毁整个决策树。
-
-```
-judgeTree.destroy();
-```
