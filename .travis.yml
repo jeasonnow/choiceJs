@@ -2,6 +2,9 @@ language: node_js
 
 node_js: '8'
 
+install:
+  - npm install
+
 stages:
  - test
  - name: deploy
@@ -19,11 +22,12 @@ jobs:
        - echo "NPM Deploying Started ..."
        - npm version
        - npm run build:deploy
+       - cd deploy
        - echo "NPM Building Finished."
 
      deploy:
        provider: npm
-       email: linyimin520812@gmail.com
+       email: gosick.but@qq.com
        api_key: "$NPM_TOKEN"
        skip_cleanup: true
        on:
