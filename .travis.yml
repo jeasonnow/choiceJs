@@ -2,35 +2,31 @@ language: node_js
 
 node_js: '8'
 
-jobs: 
-  include:
-    - stage: 'Tests'
-      name: 'lint test'
-      script: 'npm run lint'
-    - name: 'unit test'
-      script: 'npm run test:deploy'
-      if: branch = /^release[\/_]\d+\.\d+$/
-    - name: 'unit test build'
-      script: 'npm run test:build'
-      if: branch = master
+stages:
+ - test
+ - name: deploy
 
-    - stage: 'Build'
-      name: 'build deploy choiceJs'
-      script: 'npm run build:deploy'
-      if: branch = /^release[\/_]\d+\.\d+$/
-    - name: 'build choiceJs'
-      script: 'npm run build'
-      if: branch = master
+jobs:
+ include:
+   - stage: test
+     script:
+       - echo "Testing Started ..."
+       - npm run test
+       - echo "Testing Finished."
 
-    - stage: deploy
-      if: branch = /^release[\/_]\d+\.\d+$/
+   - stage: deploy
+     script:
+       - echo "NPM Deploying Started ..."
+       - npm version
+       - npm run build:deploy
+       - echo "NPM Building Finished."
 
-      deploy:
-        provider: npm
-        email: gosick.but@qq.com
-        api_key: "$NPM_TOKEN"
-        skip_cleanup: true
-        on:
+     deploy:
+       provider: npm
+       email: linyimin520812@gmail.com
+       api_key: "$NPM_TOKEN"
+       skip_cleanup: true
+       on:
           branch: /^release[\/_]\d+\.\d+$/
 
 cache: npm
