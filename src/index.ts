@@ -33,7 +33,7 @@ class Choice {
         );
       }
     } else {
-      this.choices.push(newChoice);
+      this.choices.unshift(newChoice);
     }
 
     return this;
