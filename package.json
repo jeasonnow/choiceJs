@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
+    "build:dev": "cross-env env=development deploy=false rollup -c",
     "lint": "eslint src/* && eclint check",
     "fix": "eslint src/* --fix && eclint fix",
     "test": "npm run lint &&  mocha test/index.js",
-    "test:build": "cross-env deploy=false mocha test/index.js"
+    "test:dev": "cross-env deploy=false mocha test/index.js"
   },
   "husky": {
     "hooks": {

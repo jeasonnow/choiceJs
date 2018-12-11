@@ -33,7 +33,7 @@ class Choice {
         );
       }
     } else {
-      this.choices.push(newChoice);
+      this.choices.unshift(newChoice);
     }
 
     return this;
@@ -104,6 +104,24 @@ class Choice {
     this.choices = [];
   }
 }
+
+const jd = new Choice();
+const a = 6;
+jd.add('大于1', a > 1, () => {
+  console.log('a>1');
+})
+  .add('大于3', a > 3, () => {
+    console.log('a>3');
+  })
+  .add(
+    '小于9且等于6',
+    a < 9 && a === 6,
+    () => {
+      console.log('a小于9且等于6');
+    },
+    '大于3'
+  )
+  .use();
 
 export default {
   Choice,
