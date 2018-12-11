@@ -14,6 +14,7 @@ jobs:
    - stage: test
      script:
        - echo "Testing Started ..."
+       - npm run build
        - npm run test
        - echo "Testing Finished."
 
