@@ -46,6 +46,7 @@
     "lint-staged": "^8.1.0",
     "mocha": "^5.2.0",
     "prettier": "^1.15.3",
+    "rollup": "^0.67.4",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-typescript": "^1.0.0",
     "rollup-plugin-uglify": "^6.0.0",
