@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const path = require('path');
-const deploy = process.env.deploy || 'false';
+const deploy = process.env.deploy || 'true';
 
 const testPath = deploy === 'true' ? path.join(__dirname, '../deploy/index.js') : path.join(__dirname, '../dist/index.js');
 

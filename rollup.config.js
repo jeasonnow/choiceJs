@@ -3,7 +3,7 @@ const typescript = require('rollup-plugin-typescript');
 const { uglify } = require('rollup-plugin-uglify');
 
 const env = process.env.env || 'production';
-const deploy = process.env.deploy || 'false';
+const deploy = process.env.deploy || 'true';
 
 let outputPath = 'dist/index.js';
 

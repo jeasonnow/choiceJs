@@ -4,14 +4,11 @@
   "description": "use choice mk your if...else simple.",
   "main": "index.js",
   "scripts": {
-    "test:deploy": "cross-env deploy=true mocha test/index.js",
-    "build": "cross-env env=development deploy=false rollup -c",
+    "build": "rollup -c",
     "lint": "eslint src/* && eclint check",
     "fix": "eslint src/* --fix && eclint fix",
-    "test": "npm run lint",
-    "test:build": "cross-env deploy=false mocha test/index.js",
-    "build:deploy": "cross-env env=production deploy=true rollup -c",
-    "deploy": "cd deploy/ && "
+    "test": "npm run lint &&  mocha test/index.js",
+    "test:build": "cross-env deploy=false mocha test/index.js"
   },
   "husky": {
     "hooks": {
