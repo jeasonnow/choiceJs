@@ -1,61 +1,29 @@
-# choiceJs
+#### choicejs
 [![Build Status](https://travis-ci.org/jeasonnow/choiceJs.svg?branch=master)](https://travis-ci.org/jeasonnow/choiceJs)
-[![Build version](https://img.shields.io/badge/npm-v6.4.1-green.svg)](https://github.com/jeasonnow/choiceJs)
-## 为何选择choiceJs
+[![Build version](https://img.shields.io/badge/npm-v1.1.1-green.svg)](https://github.com/jeasonnow/choiceJs)
 
-### 一切都怪if...else
-- `if...else`过于庞大导致无法维护
-- `if...else`繁杂的嵌套让人摸不清头脑
-```
-if (...) {
-  if (...) {
-    if (...) {
-      if (...) {
-
-      }
-    }
-  }
-} else {
-  if (...) {
-    if (...) {
-      if (...) {
-
-      }
-    }
-  }
-}
-```
-### choiceJs的处理 
-- 链式调用
-- 显式声明
-
-## 怎样使用
-
-### install
+##### install
+你可以通过`yarn`或者`npm`安装`choicejs`
 ```
 $ npm install choicejs
+$ yarn add choicejs
 ```
 
-### import or require
+#### require or import
 ```
-// es module
+const choicejs = require('choicejs').Choice;
+
 import { Choice } from 'choicejs'
 ```
 
-```
-// commonJs
-const Choice = require('choicejs').Choice;
-```
+####  usage
 
-### add(description: string, condition: boolean, callback: any, extend?: string)
-为你的决策树增加一个决策
+> add(description: string, condition: boolean, callback: any, extend?: string)
+
+该方法是用来增加你的选择的，有四个参数，`description`代表你对当前选择的描述，该项千万不要重复，否则后面增加的选择会覆盖之前的，第二个选项就是判断条件，第三个代指满足判断条件时的回调方法，最后一个参数为可选参数，代指继承于某项描述，就好比嵌套的`if...else`嵌套于某个条件一样。
+
+一个栗子：
 ```
-/**
-* description: 对于决策的描述（用于继承）
-* condition: 决策的判断条件
-* callback: 满足决策的回调事件
-* extends: 继承于哪个决策（使用决策描述）
-**/
 const judgeTree = new Choice();
 
 const logAisBiggerThan1() {
@@ -73,20 +41,17 @@ judgeTree
   .add('smallerThan9', a < 9, logAisSmallerThan9, 'biggerThan1')
 ```
 
-### use()
-使用决策树
+> use()
 
-当你使用add增加决策后，决策树并不会执行，你需要使用`use`方法让整个决策树`动`起来。
+简单暴力的方法，`add`用来定义，而`use`就是用来执行。如果没有`use`，那么定义好的决策树就像是一个定义好的函数，没有`()`它就毫无卵用~
 
+栗子：
 ```
 judgeTree.use();
+
+// 注意，judgeTree 是支持链式调用的，所以放心大胆地将 use() 接在 add() 之后使用吧~
 ```
 
-### destroy()
-销毁决策树
+> destroy()                                 
 
-在你不需要使用决策树之后，推荐使用该方法销毁整个决策树。
-
-```
-judgeTree.destroy();
-```
+简单的销毁方法，使用完之后可以选择清空当前实例中的所有信息，通常作为最后一步使用，在此就不举例啦~
